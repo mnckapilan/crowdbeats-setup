@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 // const APIurl = "http://localhost:8888/"
-const APIurl = "http://crowdbeats-host.herokuapp.com/"
+const APIurl = "https://crowdbeats-host.herokuapp.com/"
 
 class App extends Component {
   constructor(props){
