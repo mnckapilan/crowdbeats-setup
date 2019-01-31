@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   setPlaylist(){
-    fetch(APIurl+'setplaylist?id='+this.state.playlist_id).then(function(response) {
+    fetch(APIurl+'setplaylist?id='+this.state.playlist_id.substring(33,54)).then(function(response) {
       return response.json();
     }).then(
       (response) => {}
