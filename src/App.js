@@ -10,11 +10,20 @@ class App extends Component {
     super(props);
     this.state = {
       party_id :"",
+      playlist_id:""
     }
   }
 
-  updatePartyCode(event){
-    this.setState({partyCode:event.target.value})
+  updatePlaylistId(event){
+    this.setState({playlist_id:event.target.value})
+  }
+
+  setPlaylist(){
+    fetch(APIurl+'setplaylist?id='+this.state.playlist_id).then(function(response) {
+      return response.json();
+    }).then(
+      (response) => {}
+    )
   }
 
   fetchPartyId(){
@@ -33,10 +42,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <header className="App-header">        
+      <header className="App-header">
         <a class="link" href={APIurl+'login'} > Login to Spotify </a>
         <br></br>
         <button class="ripple" onClick={() => {this.fetchPartyId()}}>Get Party Code</button>
+        <br></br>
+        <input placeholder="Set Playlist ID" value={this.state.playlist_id} onChange={(event) => this.updatePlaylistId(event)} />
+        <button onClick={() => {this.setPlaylist()}}>Submit</button>
+
         <h1>{this.state.party_id}</h1>
         <a class="link" href={APIurl+'logout'}> Log Out </a>
       </header>
