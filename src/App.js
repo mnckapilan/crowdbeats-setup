@@ -37,7 +37,7 @@ class App extends Component {
 
   //only call when auth_status is true
   setPlaylist() {
-    fetch(APIurl + 'setplaylist?id=' + this.state.playlist_id.substring(33, 55)).then(function (response) {
+    fetch(APIurl + 'setplaylist?id=' + this.state.playlist_id).then(function (response) {
       return response.json();
     }).then(
       (response) => { } // empty function for now
@@ -64,7 +64,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h3>First, Login to Spotify. Then, copy Spotify URI of your playlist (from the Spotify App/Website) and submit it. Then get the party code!</h3>
+          <h3>First, Login to Spotify. Then, copy Spotify ID of your playlist (from the Spotify App/Website) and submit it. Then get the party code!</h3>
           <button class="ripple" onClick={() => { this.checkAuthStatus() }}>Update Auth Status (after logging in)</button>
           <h2>{this.displayAuthStatus()}</h2>
           <a class="link" href={APIurl + 'login'} > Login to Spotify </a>
@@ -82,5 +82,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
